@@ -27,21 +27,32 @@ $(document).ready(function () {
     $('body').delegate('.btnSua', 'click', function () {
         getInput("Sửa Người Dùng", "Cập Nhập", "btnCapNhat");
         var taiKhoan = $(this).data('taikhoan');
-        var dsnd = JSON.parse(localStorage.getItem("DanhSachNguoiDung"));
-        var vitri = -1;
-        var x = dsnd.map(function (item, index) {
-            if (item.TaiKhoan === taiKhoan) {
-                vitri = index;
-            }
-        })
-        console.log(dsnd[vitri]);
-        $('#TaiKhoan').val(dsnd[vitri].TaiKhoan);
+        // var dsnd = JSON.parse(localStorage.getItem("DanhSachNguoiDung"));
+        // var vitri =  nguoiDungService.LayViTriNguoiDung(taiKhoan);
+        // var x = dsnd.map(function (item, index) {
+        //     if (item.TaiKhoan === taiKhoan) {
+        //         vitri = index;
+        //     }
+        // })
+        var nguoiDung = nguoiDungService.LayViTriNguoiDung(taiKhoan);
+        console.log(nguoiDung);
+        //console.log(dsnd[vitri]); 
+        // cách 1
+        // $('#TaiKhoan').val(dsnd[vitri].TaiKhoan);
+        // $('#TaiKhoan').attr('readonly',true);
+        // $('#HoTen').val(dsnd[vitri].HoTen);
+        // $('#MatKhau').val(dsnd[vitri].MatKhau);
+        // $('#Email').val(dsnd[vitri].Email);
+        // $('#SoDienThoai').val(dsnd[vitri].SoDT);
+        // $('#loaiNguoiDung').val(dsnd[vitri].MaLoaiNguoiDung);
+        // cách 2
+        $('#TaiKhoan').val(nguoiDung.TaiKhoan);
         $('#TaiKhoan').attr('readonly',true);
-        $('#HoTen').val(dsnd[vitri].HoTen);
-        $('#MatKhau').val(dsnd[vitri].MatKhau);
-        $('#Email').val(dsnd[vitri].Email);
-        $('#SoDienThoai').val(dsnd[vitri].SoDT);
-        $('#loaiNguoiDung').val(dsnd[vitri].MaLoaiNguoiDung);
+        $('#HoTen').val(nguoiDung.HoTen);
+        $('#MatKhau').val(nguoiDung.MatKhau);
+        $('#Email').val(nguoiDung.Email);
+        $('#SoDienThoai').val(nguoiDung.SoDT);
+        $('#loaiNguoiDung').val(nguoiDung.MaLoaiNguoiDung);
     })
     // Nut Cập Nhật
     $('body').delegate('#btnCapNhat','click',function(){

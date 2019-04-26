@@ -69,6 +69,26 @@ function NguoiDungServiec() {
            console.log(err);
        })
     }
+    //  c2 để cập nhập 
+    this.LayViTriNguoiDung = function(taiKhoan){
+        // var viTri;
+        var dsnd = JSON.parse(localStorage.getItem("DanhSachNguoiDung"));
+        // dsnd.map(function(item, index){
+        //     if(item.TaiKhoan === taiKhoan){
+        //         viTri = index;
+        //         return index;
+        //     }
+        // })
+        // // return viTri; // tìm vị trí
+        // return dsnd.findIndex(function(item){
+        //    return item.TaiKhoan === taiKhoan;
+        // })
+
+        // c2: tìm trực tiếp đối tượng ra
+        return dsnd.find(function(item){
+            return item.TaiKhoan === taiKhoan;
+        })
+    }
 }
 // function taoBang(danhSachNguoiDung) {
 //     var tblBody = "";
