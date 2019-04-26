@@ -45,7 +45,7 @@ $(document).ready(function () {
         // $('#Email').val(dsnd[vitri].Email);
         // $('#SoDienThoai').val(dsnd[vitri].SoDT);
         // $('#loaiNguoiDung').val(dsnd[vitri].MaLoaiNguoiDung);
-        // cách 2
+        // cách 2 
         $('#TaiKhoan').val(nguoiDung.TaiKhoan);
         $('#TaiKhoan').attr('readonly',true);
         $('#HoTen').val(nguoiDung.HoTen);
@@ -86,6 +86,10 @@ $(document).ready(function () {
         var result = nguoiDungService.TimKiem(taiKhoan);
         taoBang(result);
     })
+    /// vi du
+    function MoiTaoBranch(){
+        
+    }
 })
 function taoBang(danhSachNguoiDung) {
     var tblBody = "";
