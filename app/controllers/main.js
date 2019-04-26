@@ -88,7 +88,7 @@ $(document).ready(function () {
     })
     /// vi du
     function MoiTaoBranch(){
-        
+        console.log("hahahahaha");
     }
 })
 function taoBang(danhSachNguoiDung) {
